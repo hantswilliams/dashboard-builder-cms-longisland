@@ -77,7 +77,7 @@ def index():
         get_dashboard_template('base'),
         form_groups=manager.render_form_groups(), 
         output_components=manager.render_outputs(),
-        settings=Config()
+        settings=dashboard_settings
     )
 
 @app.route('/about')
