@@ -1,9 +1,8 @@
 import pandas as pd
-# import matplotlib
-# matplotlib.use('Agg') # required for local development and g-shell
+import matplotlib
+matplotlib.use('Agg') # required for local development and g-shell
 import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
 
-# Use a stylesheet for a modern look
 plt.style.use('seaborn-whitegrid')
 
 def process_data(df, input_values):
@@ -93,21 +92,6 @@ def process_data(df, input_values):
         return fig
 
     fig1 = main_barchart()
-
-    # def example_pie_chart():
-    #     labels = output_df['Hospital Name'].tolist()
-    #     sizes = output_df['Net Income'].tolist()
-    #     total = sum(sizes)
-    #     sizes = [size / total for size in sizes]
-    #     sizes = [abs(size) for size in sizes]
-    #     fig, ax = plt.subplots()
-    #     ax.pie(sizes)
-    #     ax.legend(labels, loc='upper left', bbox_to_anchor=(0.85, 0.5))
-    #     plt.setp(ax.get_legend().get_texts(), fontsize='small')
-    #     return fig  # Return the figure object
-    
-    # fig2 = example_pie_chart()
-
     
     output_table_formated = output_df.copy()
     columns_to_format = ['Net Income', 'Number of Beds', 
