@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib as mpl
 from matplotlib.figure import Figure
 
 def process_data(df, input_values):
@@ -54,6 +55,8 @@ def process_data(df, input_values):
     sum_stats_df = pd.DataFrame(sum_stats, index=[0])
     
     def main_barchart():
+
+        mpl.style.use('seaborn-whitegrid')
 
         fig = Figure(figsize=(10, 7), dpi=100)
         ax = fig.add_subplot()
