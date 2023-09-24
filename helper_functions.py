@@ -1,6 +1,6 @@
 import pandas as pd
-import matplotlib
-matplotlib.use('Agg') # required for local development and g-shell
+# import matplotlib
+# matplotlib.use('Agg') # required for local development and g-shell
 import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
 
 # Use a stylesheet for a modern look

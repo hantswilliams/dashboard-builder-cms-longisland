@@ -106,7 +106,7 @@
 
 from flask import Flask, render_template_string, request
 import pandas as pd
-from .helper_functions import process_data
+from helper_functions import process_data
 
 app = Flask(__name__)
 
