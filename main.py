@@ -60,7 +60,7 @@ def index():
 
     ################################################################################################
     # Step 4: Create the outputs for this request
-    output1 = OutputMarkdown("""*Powered by [School of Health Professions - Applied Health Informatics](https://healthprofessions.stonybrookmedicine.edu/programs/ahi)*. Source Code for Dashboard: [Github](https://github.com/hantswilliams/dashboard-builder-example-1)""") # noqa: E501
+    output1 = OutputMarkdown("""*Powered by [School of Health Professions - Applied Health Informatics](https://healthprofessions.stonybrookmedicine.edu/programs/ahi)*. Source Code for Dashboard: [Github](https://github.com/hantswilliams/dashboard-builder-cms-longisland)""") # noqa: E501
     output2 = OutputImage("""https://www.stonybrook.edu/far-beyond/img/branding/logo/sbu/primary/300/stony-brook-university-logo-horizontal-300.png""")
     output3 = OutputMarkdown("""---""")
     output4 = OutputMarkdown("""# Hospital Comparison: Suffolk and Nassau County Hospital Data reported by CMS 2019""") # noqa: E501
