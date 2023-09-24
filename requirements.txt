@@ -1,6 +1,1 @@
-dashboard-builder==0.2.3
-requests 
 flask 
-pandas 
-markdown 
-matplotlib
