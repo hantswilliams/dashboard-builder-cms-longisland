@@ -7,6 +7,8 @@ from dashboard_builder.config import Config # noqa: E402
 from dashboard_builder.components.inputs import InputDropdown, InputSlider_Categorical, InputRadio # noqa: E402, E501
 from dashboard_builder.components.outputs import OutputText, OutputChart_Matplotlib, OutputTable_HTML, OutputImage, OutputMarkdown # noqa: E501, E402
 from dashboard_builder.components.managers import ComponentManager, FormGroup # noqa: E402, E501
+from dashboard_builder.components.layouts import ExpanderLayout # noqa: E402, E501
+
 
 app = Flask(__name__)
 
@@ -62,9 +64,14 @@ def index():
     output2 = OutputImage("""https://www.stonybrook.edu/far-beyond/img/branding/logo/sbu/primary/300/stony-brook-university-logo-horizontal-300.png""")
     output3 = OutputMarkdown("""---""")
     output4 = OutputMarkdown("""# Hospital Comparison: Suffolk and Nassau County Hospital Data reported by CMS 2019""") # noqa: E501
+    
+    #######
     output5 = OutputMarkdown("""The following data originates from [data.cms.gov](https://data.cms.gov/provider-compliance/cost-report/hospital-provider-cost-report), and is a subset of the data for Suffolk and Nassau County. The data is from 2019 and is the most recent data available. This data is gathered from the hospital annual cost report information maintained in the Healthcare Provider Cost Reporting Information System (HCRIS). The data does not contain all measures reported in the HCRIS, but rather includes a subset of commonly used measures.""") # noqa: E501
     output6 = OutputMarkdown("""In this example, we show how visualization can be a powerful tool when exploring data. The government provides a lot of data, but it can be difficult to understand and interpret. By using visualization, we can quickly see the distribution of the data. Using  the dropdowns below, you can filter the data by hospital, number of beds, and net income. The bar chart will update to show the filtered data. The table below the chart will show the filtered data as well. The table can be sorted by clicking on the column headers.""") # noqa: E501
     output7 = OutputMarkdown("""Please be aware that this data is for 2019 (pre-covid). Since we focus on net income, it is calculated by: subtracting Total Other Expenses (G3-Line-28-Column-1) from Total Income (G3-Line-26-Column-1) reported on the Statement of Revenues and Expenses (Worksheet-G-3).The complete data dictionary can be found [here](https://data.cms.gov/resources/hospital-provider-cost-report-data-dictionary).""") # noqa: E501
+    expander_layout1 = ExpanderLayout(label='About the dataset...', id='data_details_description', components=[output5, output6, output7]) # noqa: E501
+    #######
+
     output8 = OutputMarkdown("""---""")
     output9 = OutputMarkdown("""### Hospital Financial Summary Data""")
     output10 = OutputMarkdown("""Filters Active: Hospital: **{input2_dropdown.value}** // Beds: **{input2_slider.value}** // Net Income: **{input2_radio.value}**""".format(input2_dropdown=input2_dropdown, input2_slider=input2_slider, input2_radio=input2_radio)) # noqa: E501
@@ -85,8 +92,8 @@ def index():
     ################################################################################################
 
     # Step 5: Register the outputs to the manager
-    manager.register_outputs(output1, output2, output3, output4, output5, output6, 
-                             output7, output8, output9, output10, output11, output12, 
+    manager.register_outputs(output1, output2, output3, output4, expander_layout1, 
+                             output8, output9, output10, output11, output12, 
                              output13, output14, output15, output16, output17, 
                              output18, output19, output20, output21, output22, output23)
 
