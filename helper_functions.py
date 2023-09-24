@@ -1,9 +1,5 @@
 import pandas as pd
-import matplotlib
-matplotlib.use('Agg') # required for local development and g-shell
-import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
-
-plt.style.use('seaborn-whitegrid')
+from matplotlib.figure import Figure
 
 def process_data(df, input_values):
     hospital_name, bed_value, income_value = input_values
@@ -58,7 +54,9 @@ def process_data(df, input_values):
     sum_stats_df = pd.DataFrame(sum_stats, index=[0])
     
     def main_barchart():
-        fig, ax = plt.subplots(figsize=(10, 7))
+
+        fig = Figure(figsize=(10, 7), dpi=100)
+        ax = fig.add_subplot()
         
         # Bar colors
         main_color = '#1f75fe'  # A modern blue
@@ -88,7 +86,7 @@ def process_data(df, input_values):
         # add standard deviation to the legend
         ax.legend(frameon=True, loc='upper right')
         
-        plt.tight_layout()
+        fig.tight_layout()
         return fig
 
     fig1 = main_barchart()
