@@ -1,7 +1,5 @@
 from flask import Flask, render_template_string, request
 import pandas as pd
-import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
-plt.style.use('seaborn-whitegrid')
 
 from dashboard_builder import get_dashboard_template  # noqa: E402
 from dashboard_builder.config import Config # noqa: E402
