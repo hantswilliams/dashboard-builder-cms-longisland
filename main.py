@@ -127,6 +127,7 @@ def index():
     input3_radio = InputRadio(name='radio1', label='Select a value:', options=['A', 'B', 'C'])
     basic_group.add_inputs(input1_dropdown, input2_slider, input3_radio)
     manager.register_inputs(input1_dropdown, input2_slider, input3_radio)
+    manager.register_form_groups(basic_group)
 
     # Step 3: Do the normal python processing stuff of your data:
 
