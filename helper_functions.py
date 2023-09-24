@@ -1,7 +1,7 @@
 import pandas as pd
 
 import matplotlib
-matplotlib.use('Agg') # required for local development and g-shell
+matplotlib.use('Agg') # required for Flask to serve matplotlib images
 import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
 
 # Print the matplotlib style sheets
@@ -9,38 +9,6 @@ print(plt.style.available)
 
 # Use a stylesheet for a modern look
 plt.style.use('seaborn-v0_8')
-
-# import matplotlib as mpl
-# from matplotlib.figure import Figure
-
-# # Setting the style manually to resemble seaborn-whitegrid
-# mpl.rcParams['figure.facecolor'] = 'white'
-# mpl.rcParams['axes.facecolor'] = 'white'
-# mpl.rcParams['axes.grid'] = True
-# mpl.rcParams['grid.color'] = '.8'
-# mpl.rcParams['grid.linestyle'] = '-'
-# mpl.rcParams['axes.edgecolor'] = '.8'
-# mpl.rcParams['axes.linewidth'] = 1
-# mpl.rcParams['axes.axisbelow'] = True
-# mpl.rcParams['lines.solid_capstyle'] = 'round'
-# mpl.rcParams['patch.edgecolor'] = 'w'
-# mpl.rcParams['patch.force_edgecolor'] = True
-# mpl.rcParams['xtick.bottom'] = False
-# mpl.rcParams['xtick.direction'] = 'out'
-# mpl.rcParams['ytick.left'] = False
-# mpl.rcParams['ytick.direction'] = 'out'
-# mpl.rcParams['grid.linestyle'] = '-'
-# mpl.rcParams['axes.titlesize'] = 'large'
-# mpl.rcParams['axes.labelsize'] = 'medium'
-# mpl.rcParams['xtick.labelsize'] = 'medium'
-# mpl.rcParams['ytick.labelsize'] = 'medium'
-# mpl.rcParams['legend.frameon'] = False
-# mpl.rcParams['legend.numpoints'] = 1
-# mpl.rcParams['legend.scatterpoints'] = 1
-# mpl.rcParams['xtick.major.size'] = 0
-# mpl.rcParams['ytick.major.size'] = 0
-# mpl.rcParams['xtick.minor.size'] = 0
-# mpl.rcParams['ytick.minor.size'] = 0
 
 def process_data(df, input_values):
     hospital_name, bed_value, income_value = input_values
@@ -97,9 +65,6 @@ def process_data(df, input_values):
     def main_barchart():
 
         fig, ax = plt.subplots(figsize=(10, 7))
-
-        # fig = Figure(figsize=(10, 7), dpi=100)
-        # ax = fig.add_subplot()
         
         # Bar colors
         main_color = '#1f75fe'  # A modern blue
