@@ -105,9 +105,8 @@
 #     )
 
 from flask import Flask, render_template_string, request
-# import matplotlib
-# matplotlib.use('Agg') # required for local development and g-shell
-# import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
+from dashboard_builder import get_dashboard_template
+from dashboard_builder.config import Config
 
 app = Flask(__name__)
 
