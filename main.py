@@ -14,7 +14,7 @@ dashboard_settings = Config(
     footer_text="Built by Hants Williams, PhD, RN - Clinical Assistant Professor - Stony Brook University, School of Health Professions - Applied Health Informatics" # noqa: E501
     )
 
-df = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/dashboard-builder/main/example_dashboards/app2/ny_suffolk_nassau.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/hantswilliams/dashboard-builder/main/tests/test_app_3/ny_suffolk_nassau.csv')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
