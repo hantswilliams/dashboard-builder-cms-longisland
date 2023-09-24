@@ -1,5 +1,6 @@
 from flask import Flask, render_template_string, request
 import pandas as pd
+from matplotlib.figure import Figure
 
 from dashboard_builder import get_dashboard_template  # noqa: E402
 from dashboard_builder.config import Config # noqa: E402
