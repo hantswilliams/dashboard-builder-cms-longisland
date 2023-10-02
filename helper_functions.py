@@ -1,17 +1,12 @@
-import pandas as pd
-
+import pandas as pd # noqa
 import matplotlib
 matplotlib.use('Agg') # required for Flask to serve matplotlib images
-import matplotlib.pyplot as plt # noqa: E402 need to import after matplotlib.use('Agg')
-
-# Print the matplotlib style sheets
-print(plt.style.available)
-
-# Use a stylesheet for a modern look
-plt.style.use('seaborn-v0_8')
+import matplotlib.pyplot as plt # noqa
 
 def process_data(df, input_values):
     hospital_name, bed_value, income_value = input_values
+
+    print('Received values for function: ', hospital_name, bed_value, income_value)
 
     if hospital_name and hospital_name != 'Select All':
         output_df = df[df['Hospital Name'] == hospital_name]
@@ -31,36 +26,6 @@ def process_data(df, input_values):
     if income_value and income_value != 'Select All':
         condition = output_df['Net Income'] > 0 if income_value == 'Positive' else output_df['Net Income'] < 0 # noqa: E501
         output_df = output_df[condition]
-
-
-    ### create descriptive sum stats
-    number_of_hospital = len(output_df)
-    number_beds_sum = output_df['Number of Beds'].sum()
-    total_outpatient_revenue = output_df['Outpatient Revenue'].sum()
-    total_inpatient_revenue = output_df['Inpatient Revenue'].sum()
-    total_medicaid_charges = output_df['Medicaid Charges'].sum()
-    total_net_income = output_df['Net Income'].sum()
-    median_net_income_num = df['Net Income'].median()
-
-    ### calculate the percent of total for the selected hospital
-    percent_of_total_beds = number_beds_sum / df['Number of Beds'].sum()
-    percent_of_total_outpatient_revenue = total_outpatient_revenue / df['Outpatient Revenue'].sum() # noqa: E501
-    percent_of_total_inpatient_revenue = total_inpatient_revenue / df['Inpatient Revenue'].sum() # noqa: E501
-    percent_of_total_medicaid_charges = total_medicaid_charges / df['Medicaid Charges'].sum() # noqa: E501
-    percent_of_total_net_income = total_net_income / df['Net Income'].sum()
-    percent_of_total_hospitals = number_of_hospital / len(df)
-
-    ### create a new dataframe with the sum stats
-    sum_stats = {
-                'Percent of Total Beds': percent_of_total_beds,
-                'Percent of Total Outpatient Revenue': percent_of_total_outpatient_revenue, # noqa: E501
-                'Percent of Total Inpatient Revenue': percent_of_total_inpatient_revenue, # noqa: E501
-                'Percent of Total Medicaid Charges': percent_of_total_medicaid_charges, # noqa: E501
-                'Percent of Total Net Income': percent_of_total_net_income,
-                'Percent of Total Hospitals': percent_of_total_hospitals,
-                }
-    
-    sum_stats_df = pd.DataFrame(sum_stats, index=[0])
     
     def main_barchart():
 
@@ -72,7 +37,6 @@ def process_data(df, input_values):
         
         ax.bar(df['Hospital Name'], df['Net Income'], color=main_color, alpha=0.7, label='All Hospitals') # noqa: E501
         ax.bar(output_df['Hospital Name'], output_df['Net Income'], color=highlight_color, alpha=0.9, label='Selected Hospital') # noqa: E501
-        ax.axhline(y=median_net_income_num, color='green', linestyle='--', label=f'Median: ${(median_net_income_num).round(2):,}') # noqa: E501
         ax.axhline(y=df['Net Income'].mean(), color='red', linestyle='--', label=f'Mean: ${(df["Net Income"].mean()).round(2):,}') # noqa: E501
         
         # Adjust the spines (borders)
@@ -98,7 +62,7 @@ def process_data(df, input_values):
         return fig
 
     fig1 = main_barchart()
-    
+
     output_table_formated = output_df.copy()
     columns_to_format = ['Net Income', 'Number of Beds', 
                          'Outpatient Revenue', 'Inpatient Revenue', 
@@ -106,4 +70,5 @@ def process_data(df, input_values):
     for column in columns_to_format:
         output_table_formated[column] = output_table_formated[column].apply(lambda x: "{:,}".format(x).split('.')[0]) # noqa: E501
 
-    return output_table_formated, sum_stats_df, fig1
+    return output_table_formated, fig1
+

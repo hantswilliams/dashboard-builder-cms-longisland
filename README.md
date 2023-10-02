@@ -5,7 +5,6 @@ Built with [dashboard-builder](https://github.com/hantswilliams/dashboard-builde
 If you want to quickly visit the deployed version, please go to [https://dashboard-builder-nyhospitals.appliedhealthinformatics.com/](https://dashboard-builder-nyhospitals.appliedhealthinformatics.com/) to see the version currently running on Vercel. 
 
 
-
 ## To run locally:
 1. Create an virtual environment, or just pip install into your working env:
 ```bash
