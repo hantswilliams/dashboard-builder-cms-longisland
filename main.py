@@ -1,7 +1,5 @@
 from flask import Flask, request
-import plotly.express as px # noqa
 import pandas as pd
-import altair as alt
 from helper_functions import process_data # noqa
 
 from dashboard_builder import ComponentManager as dbcm # noqa
@@ -63,8 +61,6 @@ def index():
     # Take the user data and process the underlining dataframe based on the user selected values # noqa
     table, fig = process_data(df, [user_selected_1, user_selected_2, user_selected_3]) # noqa
 
-    # Create dummy altair chart for testing altair parameters 
-    altair_sample_chart = alt.Chart(df, width=500, height=500).mark_bar().encode(x='Hospital Name',y='Net Income') # noqa
 
     # Step 3: Create the output group
 
@@ -104,9 +100,6 @@ def index():
             dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###Matplotlib Example Section"""),
             dbcm.Outputs.matplotlib(fig),
-            dbcm.Outputs.markdown("""---"""),
-            dbcm.Outputs.markdown("""###Altair Example Section"""),
-            dbcm.Outputs.altair(altair_sample_chart, 'Altair Chart: Default View for DF', 'altair321'), # noqa
             dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###Table Example Section"""),
             dbcm.Outputs.table_html(table),
