@@ -1,5 +1,5 @@
 flask 
 pandas
-matplotlib
+plotly
 dashboard-builder
 
