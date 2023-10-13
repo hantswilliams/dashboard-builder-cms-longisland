@@ -1,4 +1,8 @@
+requests 
 flask 
 plotly
+altair
+pandas 
+markdown 
+matplotlib
 dashboard-builder
-
