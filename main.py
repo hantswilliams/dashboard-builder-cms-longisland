@@ -79,6 +79,9 @@ def index():
             dbcm.Outputs.markdown("""###Matplotlib Example Section"""),
             dbcm.Outputs.matplotlib(fig),
             dbcm.Outputs.markdown("""---"""),
+            dbcm.Outputs.markdown("""###Table Example Section"""),
+            dbcm.Outputs.table_html(table),
+            dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###Expander Example Section"""),
             dbcm.Layouts.expander(
                 label = 'About the Dataset...1',
@@ -102,9 +105,6 @@ def index():
             dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###Altair Example Section"""),
             dbcm.Outputs.altair(altair_sample_chart, 'Altair Chart: Default View for DF', 'altair321'), # noqa
-            dbcm.Outputs.markdown("""---"""),
-            dbcm.Outputs.markdown("""###Table Example Section"""),
-            dbcm.Outputs.table_html(table),
             dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###More Expander Examples Section"""),
             dbcm.Layouts.expander(
