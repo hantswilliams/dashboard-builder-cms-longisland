@@ -2,7 +2,7 @@
 
 Built with [dashboard-builder](https://github.com/hantswilliams/dashboard-builder)! 
 
-If you want to quickly visit the deployed version, please go to [https://dashboard-builder-nyhospitals.appliedhealthinformatics.com/](https://dashboard-builder-nyhospitals.appliedhealthinformatics.com/) to see the version currently running on Vercel. 
+If you want to quickly visit the deployed version, please go to [https://dashboard-builder-nyhospitals.appliedhealthinformatics.com/](https://dashboard-builder-nyhospitals.appliedhealthinformatics.com/) to see the version currently running on GCP Cloud Run. 
 
 
 ## To run locally:
