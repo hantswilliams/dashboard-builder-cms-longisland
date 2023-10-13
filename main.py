@@ -76,6 +76,9 @@ def index():
         outputs=[
             dbcm.Outputs.markdown("""#CMS Hospital Provider Cost Report 2019"""), #noqa 
             dbcm.Outputs.markdown("""---"""),
+            dbcm.Outputs.markdown("""###Matplotlib Example Section"""),
+            dbcm.Outputs.matplotlib(fig),
+            dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###Expander Example Section"""),
             dbcm.Layouts.expander(
                 label = 'About the Dataset...1',
@@ -96,9 +99,6 @@ def index():
                                   **Form Group 2 Selection**: {user_selected_2} 
                                   <br />
                                   **Form Group 3 Selection**: {user_selected_3}"""),
-            dbcm.Outputs.markdown("""---"""),
-            dbcm.Outputs.markdown("""###Matplotlib Example Section"""),
-            dbcm.Outputs.matplotlib(fig),
             dbcm.Outputs.markdown("""---"""),
             dbcm.Outputs.markdown("""###Altair Example Section"""),
             dbcm.Outputs.altair(altair_sample_chart, 'Altair Chart: Default View for DF', 'altair321'), # noqa
