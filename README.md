@@ -21,3 +21,5 @@ python main.py
 ## Deployment with GCP Cloud Run
 1. Create a new project in GCP, and enable the Cloud Run API.
 2. Followed these instructions [here](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service) to deploy the application.
+    - `gcloud run deploy`
+    
